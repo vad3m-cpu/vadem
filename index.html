@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ติดตามฉันได้ทุกช่องทาง</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#5b86e8;--deep:#1f2f6b;--paper:#fbfbf7;--sage:#b7bfae;--ink:#1b2350;--red:#e8453c;--yellow:#f4c542;--cart:#c4c7cd;--cart2:#9ea2aa;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--blue:#34508f;--paper:#1b1d2b;--sage:#2f372f;--ink:#eef0ff;--cart:#8d9199;--cart2:#6c7078}}
+:root[data-theme="dark"]{--blue:#34508f;--paper:#1b1d2b;--sage:#2f372f;--ink:#eef0ff;--cart:#8d9199;--cart2:#6c7078}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--blue);color:var(--ink);font-family:"Mitr","Noto Sans Thai",system-ui,sans-serif;overflow-x:hidden}
+.px{font-family:"Pixelify Sans","Courier New",monospace}
+/* felt texture */
+.felt{position:relative;background-color:var(--blue)}
+.felt::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* hero */
+.hero{min-height:0;padding:20px 20px 100px;text-align:center;overflow:hidden}
+nav{position:relative;z-index:3;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{font-family:"Pixelify Sans",monospace;font-weight:700;font-size:.85rem;background:#fff;color:var(--deep);border:3px solid var(--deep);border-radius:999px;padding:6px 18px;text-decoration:none;box-shadow:3px 3px 0 var(--deep);transition:transform .12s,box-shadow .12s}
+.pill:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--deep)}
+.heart{width:44px;height:40px;animation:beat 1.2s steps(2) infinite}
+@keyframes beat{50%{transform:scale(1.15)}}
+.hero-in{position:relative;z-index:2;max-width:640px;margin:0 auto;padding-top:3vh}
+.kicker{color:#fff;opacity:.95;font-size:1rem;margin:0 0 10px}
+.ico{display:block;width:56px;height:56px;margin:0 auto 12px;border-radius:50%;object-fit:cover;border:3px solid var(--deep);opacity:.85;filter:blur(1px);animation:fadeaway 4s ease-in 1.5s forwards}
+.ico[hidden]{display:none}
+@keyframes fadeaway{to{opacity:0;filter:blur(8px);transform:scale(.8)}}
+h1{margin:0;line-height:1;color:#fff;text-shadow:0 4px 0 var(--deep),4px 0 0 var(--deep),-4px 0 0 var(--deep),0 -4px 0 var(--deep),4px 4px 0 var(--deep),-4px 4px 0 var(--deep),-4px -4px 0 var(--deep),4px -4px 0 var(--deep),0 8px 0 var(--deep),4px 8px 0 var(--deep),-4px 8px 0 var(--deep)}
+h1 .l1{display:block;font-family:"Pixelify Sans",monospace;font-weight:700;font-size:clamp(3.4rem,17vw,6.4rem);letter-spacing:.04em}
+h1 .l2{display:block;font-weight:600;font-size:clamp(2.2rem,11vw,4rem);margin-top:8px}
+.sticker{display:inline-block;margin-top:34px;font-family:"Pixelify Sans",monospace;font-weight:700;background:var(--yellow);color:var(--deep);border:3px solid var(--deep);padding:8px 16px;transform:rotate(-3deg);box-shadow:4px 4px 0 var(--deep);animation:wob 2.4s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(3deg) scale(1.04)}}
+.blk{position:absolute;display:grid;opacity:.9;animation:drift var(--d,9s) ease-in-out infinite;z-index:1}
+.blk i{display:block;width:var(--s,16px);height:var(--s,16px);border:2px solid var(--deep)}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-22px) rotate(calc(var(--r,0deg) + 10deg))}}
+/* torn paper */
+.torn{position:relative;margin-top:-60px;padding:80px 20px 70px;z-index:4}
+.paper{background:var(--paper)}
+.sage{background:var(--sage)}
+.wrap{max-width:900px;margin:0 auto}
+h2{font-family:"Pixelify Sans","Mitr",monospace;font-weight:700;text-align:center;font-size:clamp(1.8rem,7vw,2.6rem);margin:0 0 6px;letter-spacing:.05em;color:var(--deep)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:#cdd8ff}}
+:root[data-theme="dark"] h2{color:#cdd8ff}
+.lead{text-align:center;opacity:.75;margin:0 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 22px}
+/* cartridge */
+a.cart{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:var(--paper);border:3px solid var(--deep);border-radius:14px;padding:12px 14px;box-shadow:5px 5px 0 var(--deep);transition:transform .2s,box-shadow .2s}
+a.cart:hover{transform:translate(-2px,-4px);box-shadow:7px 9px 0 var(--deep)}
+a.cart:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--deep)}
+.mark{flex:none;width:52px;height:52px;display:grid;place-items:center;border:3px solid var(--deep);border-radius:10px;color:#fff;font-family:"Pixelify Sans",monospace;font-weight:700;font-size:1.3rem;text-shadow:2px 2px 0 rgba(0,0,0,.3)}
+.tx{flex:1;min-width:0}
+.nm{font-weight:500}
+.hd{font-family:"Pixelify Sans",monospace;font-size:.9rem;opacity:.7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.go{font-family:"Pixelify Sans",monospace;font-weight:700;color:var(--red);font-size:1.3rem}
+@keyframes blink{50%{opacity:0}}
+/* about */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:10px}
+.step{background:var(--paper);border:3px solid var(--deep);border-radius:12px;padding:18px;box-shadow:5px 5px 0 var(--deep)}
+.step .n{font-family:"Pixelify Sans",monospace;font-weight:700;font-size:2rem;color:var(--red)}
+.step p{margin:4px 0 0;font-size:.95rem}
+.burst{display:block;width:max-content;max-width:90%;margin:46px auto 0;background:#fff;color:#1b2350;border:3px solid var(--deep);padding:14px 22px;text-align:center;font-weight:500;clip-path:polygon(0 8%,6% 0,14% 8%,24% 0,34% 8%,46% 0,56% 8%,68% 0,78% 8%,90% 0,100% 10%,94% 30%,100% 50%,94% 70%,100% 92%,86% 100%,72% 92%,58% 100%,44% 92%,30% 100%,16% 92%,6% 100%,0 90%,6% 66%,0 48%,6% 28%)}
+footer{text-align:center;padding:30px 20px 40px;background:var(--deep);color:#cdd8ff;font-family:"Pixelify Sans",monospace;letter-spacing:.1em}
+footer span{animation:blink 1.2s steps(2) infinite}
+/* reveal in AND out */
+.rv{opacity:0;transform:translateY(40px) scale(.96);filter:blur(4px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),filter .7s ease}
+.rv.l{transform:translateX(-50px) scale(.96)}
+.rv.r{transform:translateX(50px) scale(.96)}
+.rv.in{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none;filter:none}.blk,.sticker,.heart,.btn b,footer span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero felt">
+  <nav>
+    <a class="pill" href="#channels">ช่องทาง</a>
+    <svg class="heart" viewBox="0 0 11 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#fff" d="M1 0h3v1h1v1h1V1h1V0h3v1h1v3h-1v1h-1v1h-1v1h-1v1H5V8H4V7H3V6H2V5H1V4H0V1h1z"/><path fill="#e8453c" d="M1 1h2v1h1v1H3v1H1zm5 0h3v3H8v1H7v1H6V5H5V4h1z" opacity="0"/><path fill="#e8453c" d="M2 1h2v1h1v1h1V2h1V1h2v2H9v1H8v1H7v1H6v1H5V6H4V5H3V4H2z"/></svg>
+  </nav>
+  <div class="hero-in">
+    <img class="ico" id="ico" alt="" hidden>
+    <p class="kicker rv" id="kicker"></p>
+    <h1 class="rv"><span class="l1">VADEM</span></h1>
+  </div>
+</header>
+
+<section class="torn paper" id="channels">
+  <div class="wrap">
+    <h2 class="rv">CHANNELS</h2>
+    <p class="lead rv">เลือกแพลตฟอร์มที่สะดวก แล้วกดติดตามได้เลย</p>
+    <div class="grid" id="list"></div>
+  </div>
+</section>
+
+<footer><span>THANKS FOR FOLLOWING ♥</span></footer>
+
+<script>
+// ✏️ แก้ตรงนี้ได้เลย
+const CONFIG = {
+  kicker: "Yes yes just like that !",
+  icon: "", // ใส่ลิงก์รูปของคุณตรงนี้ (เว้นว่างไว้ = ไม่แสดง)
+  channels: [
+    {name:"Instagram", handle:"vay.dem", url:"https://www.instagram.com/vay.dem?evlk=MWF1OG5uMmVxeXBtdw==", color:"#e1306c", mark:"IG"},
+    {name:"TikTok", handle:"into_theVadem", url:"https://www.tiktok.com/@into_thevadem?_r=1&_t=ZS-9BcZ9Zhu7ds", color:"#222", mark:"TT"},
+    {name:"Discord", handle:"ในอนาคต", url:".", color:"#5865f2", mark:"DC"}
+  ]
+};
+const $=id=>document.getElementById(id);
+$("kicker").textContent=CONFIG.kicker;
+if(CONFIG.icon){const ic=$("ico");ic.src=CONFIG.icon;ic.hidden=false}
+const list=$("list");
+CONFIG.channels.forEach((c,i)=>{
+  const a=document.createElement("a");
+  a.className="cart rv "+(i%2?"r":"l");a.href=c.url;a.target="_blank";a.rel="noopener";
+  a.innerHTML='<div class="mark" style="background:'+c.color+'">'+c.mark+'</div><div class="tx"><div class="nm">'+c.name+'</div><div class="hd">'+c.handle+'</div></div><div class="go">▸</div>';
+  list.appendChild(a);
+});
+// torn paper edges
+document.querySelectorAll(".torn").forEach(el=>{
+  const n=36,p=[];for(let i=0;i<=n;i++){p.push((i/n*100)+"% "+(Math.random()*26+4)+"px")}
+  el.style.clipPath="polygon("+p.join(",")+",100% 100%,0 100%)";
+});
+// floating tetris blocks in hero
+const shapes=[[[1,1,1,1]],[[1,1],[1,1]],[[1,0],[1,0],[1,1]],[[0,1,0],[1,1,1]],[[1,1,0],[0,1,1]]];
+const cols=["#f4c542","#e8453c","#7ad06c","#ff9bd0","#8fd3ff"];
+[[6,18],[82,12],[10,62],[86,58],[48,84]].forEach((pos,i)=>{
+  const s=shapes[i%shapes.length],b=document.createElement("div");
+  b.className="blk";b.style.cssText="left:"+pos[0]+"%;top:"+pos[1]+"%;--d:"+(7+i*1.3)+"s;--r:"+(i*14-20)+"deg;--s:"+(i%2?14:18)+"px;grid-template-columns:repeat("+s[0].length+",auto)";
+  s.forEach(r=>r.forEach(v=>{const c=document.createElement("i");if(v)c.style.background=cols[i%cols.length];else c.style.visibility="hidden";b.appendChild(c)}));
+  document.querySelector(".hero").appendChild(b);
+});
+// fade in on enter, fade out on leave
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.style.transitionDelay=(e.target.dataset.d||0)+"ms";e.target.classList.add("in")}
+  else{e.target.style.transitionDelay="0ms";e.target.classList.remove("in")}
+}),{threshold:.15,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".rv").forEach((el,i)=>{if(el.classList.contains("cart"))el.dataset.d=(i%2)*90;io.observe(el)});
+</script>
+</body>
+</html>
